@@ -79,6 +79,18 @@ class _HomepageState extends State<Homepage> {
   bool pre_is_click=true;
   bool suf_is_click=false;
 
+  void set_zero(){
+    if(pre_is_click==true){
+      f='0';
+      t='0';
+    }
+    if(suf_is_click==true){
+      f='0';
+      t='0';
+    }
+  }
+
+
   //set from and to text
   String f='0';
   String t='0';
@@ -240,6 +252,8 @@ class _HomepageState extends State<Homepage> {
                               setState(() {
                                 pre_is_click=true;
                                 suf_is_click=false;
+                                //set_zero();
+
                               });
                             },
                             child: AutoSizeText(
@@ -270,6 +284,7 @@ class _HomepageState extends State<Homepage> {
                             setState(() {
                               pre_is_click=false;
                               suf_is_click=true;
+                              //set_zero();
                             });
                           },
                           child: AutoSizeText(

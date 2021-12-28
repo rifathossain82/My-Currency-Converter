@@ -12,7 +12,7 @@ Widget CustomDropDown(
     onTap: (){
       if(items.isEmpty){   ///when no internet it's got item==null so it's so a message
         showSimpleNotification(
-          Text('No Internet Connection!'),
+          Text('No Currency Found!'),
           background: Colors.red,
         );
       }

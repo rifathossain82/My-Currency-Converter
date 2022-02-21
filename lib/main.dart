@@ -1,14 +1,9 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:my_currency_converter/services/Api_Client.dart';
 import 'package:my_currency_converter/widget/DropDownWidget.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:intl/intl.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -41,7 +36,6 @@ class _HomepageState extends State<Homepage> {
   //TextEditingController controller=TextEditingController(); //to store the text which is given by user
   bool hasInternet=false;    //a variable to store bool value by depend on internet connectivity
 
-
   Color mainColor = Color(0xFF212936);
   Color secondColor = Color(0xFF2849E5);
   List<String> currencies=[];     //to store currencies
@@ -50,7 +44,6 @@ class _HomepageState extends State<Homepage> {
 
   late double rate; //get rate from api
   String result='';  //show result
-
 
   var usd_bdt;  //this is default curriencies
 
@@ -171,7 +164,6 @@ class _HomepageState extends State<Homepage> {
   }  //get current rate by from and to dropdown value
 
 
-
   @override
   void initState() {
     // TODO: implement initState
@@ -188,7 +180,6 @@ class _HomepageState extends State<Homepage> {
       });
     })();
   }
-
 
 
   @override
@@ -212,7 +203,6 @@ class _HomepageState extends State<Homepage> {
   }
 
 
-
   Widget Mobile_Screen(){   //widget for mobile screen
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -228,7 +218,8 @@ class _HomepageState extends State<Homepage> {
               presetFontSizes: [66,56,46,36,26],
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color: Colors.white
+              ),
             ),
           ),
         ),
@@ -277,21 +268,24 @@ class _HomepageState extends State<Homepage> {
                     children: [
                       Text("\$",style: TextStyle(color: Colors.white),),
                       SizedBox(width: 12,),
-                      Expanded(child: InkWell(
-                          splashColor: mainColor,
-                          highlightColor: mainColor,
-                          onTap: (){   //when click to text, its change his value
-                            setState(() {
-                              pre_is_click=false;
-                              suf_is_click=true;
-                              //set_zero();
-                            });
-                          },
-                          child: AutoSizeText(
-                            t,
-                            maxLines: 1,
-                            style: suf_is_click?suf_txt_style:pre_txt_style,
-                          ))),
+                      Expanded(
+                          child: InkWell(
+                            splashColor: mainColor,
+                            highlightColor: mainColor,
+                            onTap: (){   //when click to text, its change his value
+                              setState(() {
+                                pre_is_click=false;
+                                suf_is_click=true;
+                                //set_zero();
+                              });
+                            },
+                            child: AutoSizeText(
+                              t,
+                              maxLines: 1,
+                              style: suf_is_click?suf_txt_style:pre_txt_style,
+                            )
+                          )
+                      ),
                     ],
                   ),
                   CustomDropDown(currencies, to, (val){
@@ -308,7 +302,6 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(height: 3,),
                   //set current date and time
                   AutoSizeText('Updated ${date} ${time}',style: TextStyle(color: Colors.grey),maxLines: 1,maxFontSize: 18,minFontSize: 12,),
-
                 ],
               ),
             ),
@@ -420,7 +413,8 @@ class _HomepageState extends State<Homepage> {
                         onTap: (){
                           setState(() {
                             set_number('9');
-                          });},
+                          });
+                        },
                         borderRadius: BorderRadius.circular(8),
                         child: mycontainer('9')
                     ),
@@ -442,7 +436,8 @@ class _HomepageState extends State<Homepage> {
                             });
                           },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('4')),
+                          child: mycontainer('4')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -455,7 +450,8 @@ class _HomepageState extends State<Homepage> {
                             });
                           },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('5')),
+                          child: mycontainer('5')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -465,7 +461,8 @@ class _HomepageState extends State<Homepage> {
                             set_number('6');
                           });},
                         borderRadius: BorderRadius.circular(8),
-                        child: mycontainer('6')),
+                        child: mycontainer('6')
+                    ),
                   ),
                 ],
               ),
@@ -481,9 +478,11 @@ class _HomepageState extends State<Homepage> {
                           onTap: (){
                             setState(() {
                               set_number('1');
-                            });},
+                            });
+                          },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('1')),
+                          child: mycontainer('1')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -493,9 +492,11 @@ class _HomepageState extends State<Homepage> {
                           onTap: (){
                             setState(() {
                               set_number('2');
-                            });},
+                            });
+                          },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('2')),
+                          child: mycontainer('2')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -503,9 +504,11 @@ class _HomepageState extends State<Homepage> {
                         onTap: (){
                           setState(() {
                             set_number('3');
-                          });},
+                          });
+                        },
                         borderRadius: BorderRadius.circular(8),
-                        child: mycontainer('3')),
+                        child: mycontainer('3')
+                    ),
                   ),
                 ],
               ),
@@ -529,9 +532,11 @@ class _HomepageState extends State<Homepage> {
                           onTap: (){
                             setState(() {
                               set_number('0');
-                            });},
+                            });
+                          },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('0')),
+                          child: mycontainer('0')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -557,7 +562,8 @@ class _HomepageState extends State<Homepage> {
                           });
                         },
                         borderRadius: BorderRadius.circular(8),
-                        child: mycontainer('.')),
+                        child: mycontainer('.')
+                    ),
                   ),
                 ],
               ),
@@ -636,20 +642,23 @@ class _HomepageState extends State<Homepage> {
                           children: [
                             Text("\$",style: TextStyle(color: Colors.white),),
                             SizedBox(width: 12,),
-                            Expanded(child: InkWell(
-                                splashColor: mainColor,
-                                highlightColor: mainColor,
-                                onTap: (){ //when click to text, its change his value
-                                  setState(() {
-                                    pre_is_click=false;
-                                    suf_is_click=true;
-                                  });
-                                },
-                                child: AutoSizeText(
-                                  t,
-                                  maxLines: 1,
-                                  style: suf_is_click?suf_txt_style:pre_txt_style,
-                                ))),
+                            Expanded(
+                                child: InkWell(
+                                  splashColor: mainColor,
+                                  highlightColor: mainColor,
+                                  onTap: (){ //when click to text, its change his value
+                                    setState(() {
+                                      pre_is_click=false;
+                                      suf_is_click=true;
+                                    });
+                                  },
+                                  child: AutoSizeText(
+                                    t,
+                                    maxLines: 1,
+                                    style: suf_is_click?suf_txt_style:pre_txt_style,
+                                  )
+                                )
+                            ),
                           ],
                         ),
                         CustomDropDown(currencies, to, (val){
@@ -785,7 +794,8 @@ class _HomepageState extends State<Homepage> {
                         onTap: (){
                           setState(() {
                             set_number('9');
-                          });},
+                          });
+                        },
                         borderRadius: BorderRadius.circular(8),
                         child: mycontainer('9')
                     ),
@@ -820,7 +830,8 @@ class _HomepageState extends State<Homepage> {
                             });
                           },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('5')),
+                          child: mycontainer('5')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -830,7 +841,8 @@ class _HomepageState extends State<Homepage> {
                             set_number('6');
                           });},
                         borderRadius: BorderRadius.circular(8),
-                        child: mycontainer('6')),
+                        child: mycontainer('6')
+                    ),
                   ),
                 ],
               ),
@@ -846,9 +858,11 @@ class _HomepageState extends State<Homepage> {
                           onTap: (){
                             setState(() {
                               set_number('1');
-                            });},
+                            });
+                          },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('1')),
+                          child: mycontainer('1')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -858,9 +872,11 @@ class _HomepageState extends State<Homepage> {
                           onTap: (){
                             setState(() {
                               set_number('2');
-                            });},
+                            });
+                          },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('2')),
+                          child: mycontainer('2')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -868,9 +884,11 @@ class _HomepageState extends State<Homepage> {
                         onTap: (){
                           setState(() {
                             set_number('3');
-                          });},
+                          });
+                        },
                         borderRadius: BorderRadius.circular(8),
-                        child: mycontainer('3')),
+                        child: mycontainer('3')
+                    ),
                   ),
                 ],
               ),
@@ -894,9 +912,11 @@ class _HomepageState extends State<Homepage> {
                           onTap: (){
                             setState(() {
                               set_number('0');
-                            });},
+                            });
+                          },
                           borderRadius: BorderRadius.circular(8),
-                          child: mycontainer('0')),
+                          child: mycontainer('0')
+                      ),
                     ),
                   ),
                   Expanded(
@@ -922,7 +942,8 @@ class _HomepageState extends State<Homepage> {
                           });
                         },
                         borderRadius: BorderRadius.circular(8),
-                        child: mycontainer('.')),
+                        child: mycontainer('.')
+                    ),
                   ),
                 ],
               ),

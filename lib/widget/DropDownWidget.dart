@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 Widget CustomDropDown(
     List<String> items,   //from main
     String value, //from main
     void onChange(val) //from main
-    ){
+    )
+{
   return InkWell(
     onTap: (){
       if(items.isEmpty){   ///when no internet it's got item==null so it's so a message

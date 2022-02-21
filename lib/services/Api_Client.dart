@@ -1,11 +1,7 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Api_client{
-
-
   final Uri currency_api=Uri.https("free.currconv.com","/api/v7/currencies", {"apiKey":"1c06ed2c945ecd9f7537"});
   //return all currensies key
   Future<List<String>> getCurrensies() async{
@@ -21,7 +17,6 @@ class Api_client{
       throw Exception('Failed to connect to API.');
     }
   }
-
 
   //return current rate
   Future<double> getRate(String from, String to) async{
